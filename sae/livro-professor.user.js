@@ -9,7 +9,7 @@
 // @description 28/05/2024, 16:01:28
 // ==/UserScript==
 
-fetch("https://example.com/my-script.user.js") // Replace with your script URL
+fetch("https://github.com/duckymods/Mods/blob/main/sae/livro-professor.user.js?raw=true") // Replace with your script URL
   .then((response) => response.text())
   .then((text) => {
     // Extract version number from the script
