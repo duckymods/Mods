@@ -66,7 +66,7 @@ if (window.top !== window.self) {
         if (text !== storedScript) {
           Toast.fire({
             icon: "info",
-            title: "Atualizando mod!"
+            title: storedScript === "" ? "Instalando mod..." : "Atualizando mod..."
           });
           setTimeout(() => {
             GM_setValue("script", text);
