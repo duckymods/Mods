@@ -72,7 +72,7 @@ if (window.top !== window.self) {
             GM_setValue("script", text);
             Toast.fire({
               icon: "success",
-              title: "Mod atualizado e injetado!"
+              title:  storedScript === "" ? "Mod instalado!" : "Mod atualizado!"
             });
             eval(text);
           }, 500);
