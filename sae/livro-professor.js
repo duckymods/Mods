@@ -1,1 +1,1 @@
-document.documentElement.appendChild((() => { let s = document.createElement('style'); s.textContent = 'a.professor.professor.professor { display: inline !important; }'; return s}));
+let sstyle=document.createElement("style");sstyle.textContent="a.professor.professor.professor { display: inline !important; }",document.documentElement.appendChild(sstyle);
