@@ -1001,7 +1001,7 @@
   }
 
   waitForElement("div#app", (element) => {
-    if (document.querySelector(".css-dho3mt")) mainLG();
+    mainLG();
     main();
   });
 
