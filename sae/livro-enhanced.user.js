@@ -87,7 +87,7 @@ if (true) {
           if (storedScript === "")
             return Toast.fire({
               icon: "error",
-              title: "Livro Melhorado: Conecte-se a internet pela primeira vez!",
+              title: "Livro Melhorado: Servidor remoto offline!",
             });
           eval(storedScript);
           console.error("Error checking for updates:", error);
