@@ -46,7 +46,7 @@ if (true) {
         window.top === window.self
           ? Swal.mixin({
               toast: true,
-              position: "bottom-end",
+              position: "bottom-start",
               showConfirmButton: false,
               timer: 3000,
               timerProgressBar: true,
@@ -68,42 +68,31 @@ if (true) {
           const text = response.responseText;
           const storedScript = GM_getValue("script", "");
           if (text !== storedScript) {
-            Toast.fire({
-              icon: "info",
-              title:
-                storedScript === ""
-                  ? "[Livro Digital Enhanced] Instalando..."
-                  : "[Livro Digital Enhanced] Atualizando...",
-            });
             setTimeout(() => {
               GM_setValue("script", text);
               Toast.fire({
                 icon: "success",
                 title:
                   storedScript === ""
-                    ? "[Livro Digital Enhanced] Instalado!"
-                    : "[Livro Digital Enhanced] Atualizado!",
+                    ? "Livro Melhorado: Instalado!"
+                    : "Livro Melhorado: Atualizado!",
               });
               eval(text);
             }, 500);
           } else {
             Toast.fire({
               icon: "success",
-              title: "Injeção sucedida!",
+              title: "Livro melhorado: Carregado!",
             });
             eval(storedScript);
           }
         },
         onerror: function (error) {
-          Toast.fire({
-            icon: "error",
-            title: "Erro ao conectar ao servidor, injetando mesmo assim!",
-          });
           const storedScript = GM_getValue("script", "");
           if (storedScript === "")
             return Toast.fire({
               icon: "error",
-              title: "Script não encontrado localmente, falha total!",
+              title: "Livro Melhorado: Conecte-se a internet pela primeira vez!",
             });
           eval(storedScript);
           console.error("Error checking for updates:", error);
@@ -112,7 +101,7 @@ if (true) {
     })
     .catch((e) => {
       console.error("Failed to load main!", e);
-      alert("Failed to connect! Injecting installed version!");
+      /// alert("Failed to connect! Injecting installed version!");
       const storedScript = GM_getValue("script", "");
       if (storedScript === "")
         return alert("Local not found, failed to load Livro Digital Enhanced!");
