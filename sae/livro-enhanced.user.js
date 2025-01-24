@@ -56,11 +56,6 @@ if (true) {
               },
             })
           : { fire: (...a) => {} };
-      Toast.fire({
-        icon: "info",
-        title: "[Livro Digital Enhanced] Conectando ao servidor...",
-        description: "Sim",
-      });
       GM_xmlhttpRequest({
         method: "GET",
         url: "https://raw.githubusercontent.com/duckymods/Mods/refs/heads/main/sae/livro-enhanced.js", // Replace with your script URL
