@@ -69,15 +69,15 @@ if (true) {
                 icon: "success",
                 title:
                   storedScript === ""
-                    ? "Livro Melhorado: Instalado!"
-                    : "Livro Melhorado: Atualizado!",
+                    ? "LE Instalado!"
+                    : "LE Atualizado!",
               });
               eval(text);
             }, 500);
           } else {
             Toast.fire({
               icon: "success",
-              title: "Livro melhorado: Carregado!",
+              title: "Injeção do LE completa!",
             });
             eval(storedScript);
           }
@@ -87,7 +87,7 @@ if (true) {
           if (storedScript === "")
             return Toast.fire({
               icon: "error",
-              title: "Livro Melhorado: Servidor remoto offline!",
+              title: "Servidor remoto offline!",
             });
           eval(storedScript);
           console.error("Error checking for updates:", error);
