@@ -256,6 +256,9 @@
       left: 50%;
       transform: translateX(-50%);
     }
+    .chakra-container.css-sgl8a2 {
+      display: none;
+    }
   `);
 
     let patches = [];
