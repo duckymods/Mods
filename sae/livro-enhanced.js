@@ -61,17 +61,29 @@
         position: relative; /* Necessário para referência ao filho */
         overflow-y: auto; /* Permite a rolagem no eixo Y */
         height: 100vh; /* Garante que o #app ocupe a altura total da janela */
+
+        display: flex;
+        justify-content: center; /* Centers horizontally */
+        align-items: center;   /* Centers vertically */
+        width: 100vw;          /* Full viewport width */
     }
 
     div#app main {
-        position: absolute; /* Centraliza o elemento em relação ao pai */
+        /*position: absolute;  Centraliza o elemento em relação ao pai 
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);*/
         width: 80%;
         
     }
-
+    .css-j7qwjs {
+      overflow: auto !important;
+      max-height: 60vh !important;
+    }
+    
+    .css-lvoalq {
+      overflow: unset !important;
+    }
     div#app main div.chakra-container.css-1g9eqn7 div.css-1l2z1d3 + div {
         overflow-y: auto;
         max-height: 35vh;
