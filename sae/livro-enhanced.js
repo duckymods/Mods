@@ -58,18 +58,27 @@
   function main() {
     addStyle(`
     div#app {
-        position: relative; /* Necessário para referência ao filho */
         overflow-y: auto; /* Permite a rolagem no eixo Y */
         height: 100vh; /* Garante que o #app ocupe a altura total da janela */
-
-        display: flex;
-        justify-content: center; /* Centers horizontally */
-        align-items: center;   /* Centers vertically */
-        width: 100vw;          /* Full viewport width */
+        width: 100vw;
+    }
+    .centralizar {
+      position: relative;
+      text-align: center; /* Centraliza horizontalmente o texto e elementos inline */
+      padding: 0; /* Certifique-se que não tem deslocamentos indesejados */
     }
 
+    .centralizar > * {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      min-width: 60vw;
+    }
+    
     div#app main {
-        /*position: absolute;  Centraliza o elemento em relação ao pai 
+    
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);*/
@@ -274,6 +283,18 @@
   `);
 
     let patches = [];
+    patches.push(() => {
+      if (
+        document.querySelector("#app") &&
+        !document.querySelector("#app").classList.contains("centralizar")
+      ) {
+        console.log(
+          "[Livro Digital Enhanced] Added center to div.",
+          document.querySelector("#app")
+        );
+        document.querySelector("#app").classList.add("centralizar");
+      }
+    });
     patches.push(() => {
       if (
         document.querySelector("#rybena-sidebar") &&
@@ -504,30 +525,40 @@
       const spans = document.querySelectorAll(".chakra-text");
       spans.forEach((span) => {
         if (span.innerText.includes("quando a série")) {
-          if (span.parentElement.parentElement.classList.contains("X-MODIFIED")) return;
+          if (span.parentElement.parentElement.classList.contains("X-MODIFIED"))
+            return;
           span.parentElement.parentElement.classList.add("X-MODIFIED");
-          span.parentElement.parentElement.classList.add("X-HIDE")
-          console.log("[Livro Digital Enhanced] Removed select serie!", span)
+          span.parentElement.parentElement.classList.add("X-HIDE");
+          console.log("[Livro Digital Enhanced] Removed select serie!", span);
         }
       });
     });
     patches.push(() => {
       const spans = document.querySelectorAll(".chakra-text.css-1j8r2w0");
       spans.forEach((span) => {
-        if (span.innerText.includes("Infelizmente, seu navegador está desatualizado.")) {
-          if (span.parentElement.parentElement.classList.contains("X-MODIFIED")) return;
+        if (
+          span.innerText.includes(
+            "Infelizmente, seu navegador está desatualizado."
+          )
+        ) {
+          if (span.parentElement.parentElement.classList.contains("X-MODIFIED"))
+            return;
           span.parentElement.parentElement.classList.add("X-MODIFIED");
-          span.parentElement.parentElement.classList.add("X-HIDE")
-          console.log("[Livro Digital Enhanced] Removed select serie!", span)
+          span.parentElement.parentElement.classList.add("X-HIDE");
+          console.log("[Livro Digital Enhanced] Removed select serie!", span);
         }
       });
     });
     patches.push(() => {
-      const spans = document.querySelectorAll(".chakra-modal__header.css-din6dh");
+      const spans = document.querySelectorAll(
+        ".chakra-modal__header.css-din6dh"
+      );
       spans.forEach((span) => {
         if (span.innerText.includes("Versão suportadas")) {
-          span.parentElement.querySelector("button.chakra-modal__close-btn").click()
-          console.log("[Livro Digital Enhanced] Removed select serie!", span)
+          span.parentElement
+            .querySelector("button.chakra-modal__close-btn")
+            .click();
+          console.log("[Livro Digital Enhanced] Removed select serie!", span);
         }
       });
     });
@@ -542,7 +573,10 @@
         );
       }
       document.querySelectorAll(".css-hn2x0o").forEach((container) => {
-        if (!injectedMaterias.includes(container.getAttribute("x-uid") || "") && !container.classList.contains("X-INJECT")) {
+        if (
+          !injectedMaterias.includes(container.getAttribute("x-uid") || "") &&
+          !container.classList.contains("X-INJECT")
+        ) {
           let id = crypto.randomUUID();
           container.setAttribute("x-uid", id);
           injectedMaterias.push(id);
@@ -973,8 +1007,11 @@
     addStyle(`
     .css-ev2pl9 { display: inline !important; margin: auto; }
     .css-ev2pl9 .css-1qkagck { background: transparent !important; }
-    .css-wuw9o9 .chakra-text.css-1jijfcn, .css-wuw9o9 .chakra-text.css-7g9jqk {}
-    .css-wuw9o9 { margin: auto !important; position: fixed !important; top: 50% !important; }
+    .css-l8vg34 {
+      max-width: unset !important;
+      padding-inline-start: unset !important;
+      padding-inline-end: unset !important;
+    }
   `);
     patches.push(() => {
       let login_bloat = document.querySelector(".css-dho3mt");
@@ -996,12 +1033,6 @@
         );
       }
     });
-    var inlineScript = document.createElement("script");
-    inlineScript.innerHTML = `
-      console.log('JavaScript injetado com sucesso!');
-      // Seu código JS aqui
-  `;
-    document.body.appendChild(inlineScript);
     function core() {
       patches.forEach((fn) => {
         try {
@@ -1100,5 +1131,4 @@
   `);
   });
   console.warn("Script state: " + (window.x_running ? "Running" : "Starting"));
-  // Intercepting XHR requests
 })();
