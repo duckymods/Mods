@@ -6,9 +6,10 @@
 // @grant       GM_setValue
 // @grant       GM_getValue
 // @version     1.0
-// @author      Hiro
-// @description 28/05/2024, 16:01:28
+// @updateURL   https://cdn.jsdelivr.net/gh/duckymods/Mods@main/sae/livro-professor.user.js
+// @downloadURL https://cdn.jsdelivr.net/gh/duckymods/Mods@main/sae/livro-professor.user.js
 // ==/UserScript==
+
 
 if (window.top !== window.self) {
   const sweetAlertScriptUrl =
