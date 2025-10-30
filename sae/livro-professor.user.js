@@ -48,7 +48,7 @@ if (window.top !== window.self) {
   ]).then(async () => {
     GM_xmlhttpRequest({
       method: "GET",
-      url: "https://github.com/duckymods/Mods/raw/main/sae/livro-professor.js", // Replace with your script URL
+      url: "https://cdn.jsdelivr.net/gh/duckymods/Mods@main/sae/livro-professor.js", // Replace with your script URL
       onload: function (response) {
         const text = response.responseText;
         const storedScript = GM_getValue("script", "");
