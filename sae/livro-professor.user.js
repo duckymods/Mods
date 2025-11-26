@@ -2,10 +2,8 @@
 // @name        Livro Digital (Professor)
 // @namespace   Hiro Scripts
 // @match       https://livrodigital.sae.digital/*
-// @grant       GM_xmlhttpRequest
-// @grant       GM_setValue
-// @grant       GM_getValue
-// @version     2.1.1
+// @run-at      document-start
+// @version     2.1.2
 // @updateURL   https://cdn.jsdelivr.net/gh/duckymods/Mods@main/sae/livro-professor.user.js
 // @downloadURL https://cdn.jsdelivr.net/gh/duckymods/Mods@main/sae/livro-professor.user.js
 // ==/UserScript==
