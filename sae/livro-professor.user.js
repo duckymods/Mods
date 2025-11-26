@@ -5,7 +5,7 @@
 // @grant       GM_xmlhttpRequest
 // @grant       GM_setValue
 // @grant       GM_getValue
-// @version     1.1
+// @version     1.2
 // @updateURL   https://cdn.jsdelivr.net/gh/duckymods/Mods@main/sae/livro-professor.user.js
 // @downloadURL https://cdn.jsdelivr.net/gh/duckymods/Mods@main/sae/livro-professor.user.js
 // ==/UserScript==
