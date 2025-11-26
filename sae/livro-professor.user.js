@@ -5,7 +5,7 @@
 // @grant       GM_xmlhttpRequest
 // @grant       GM_setValue
 // @grant       GM_getValue
-// @version     2.1
+// @version     2.1.1
 // @updateURL   https://cdn.jsdelivr.net/gh/duckymods/Mods@main/sae/livro-professor.user.js
 // @downloadURL https://cdn.jsdelivr.net/gh/duckymods/Mods@main/sae/livro-professor.user.js
 // ==/UserScript==
@@ -500,7 +500,6 @@ console.log("[AURA + EGO] Iniciando VMs...");
               panel.appendChild(applyBtn);
 
           } else {
-              // SAFE MODE CONTENT (ONLY TEACHER TOGGLE)
               const teacherRow = document.createElement('div');
               teacherRow.className = 'sae-teacher-toggle-row sae-stagger-item';
               teacherRow.style.animationDelay = '0.1s';
@@ -552,6 +551,3 @@ console.log("[AURA + EGO] Iniciando VMs...");
       else render();
   });
 })();
-      },
-    });
-  });
