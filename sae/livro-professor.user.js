@@ -10,8 +10,6 @@
 // @downloadURL https://cdn.jsdelivr.net/gh/duckymods/Mods@main/sae/livro-professor.user.js
 // ==/UserScript==
 
-
-if (window.top !== window.self) {
   const sweetAlertScriptUrl =
     "https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js";
   const sweetAlertCssUrl =
@@ -134,4 +132,3 @@ if (window.top !== window.self) {
       },
     });
   });
-}
