@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Livro Digital (Professor)
 // @namespace   Hiro Scripts
-// @match       https://livrodigital.sae.digital/@mount*
+// @match       https://livrodigital.sae.digital/*
 // @grant       GM_xmlhttpRequest
 // @grant       GM_setValue
 // @grant       GM_getValue
